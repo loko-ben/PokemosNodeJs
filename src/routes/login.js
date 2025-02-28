@@ -1,6 +1,8 @@
 /* Authentificateur : Créer un modele User avec Sequelize*/
 const {user} = require('../db/sequelize')
-const bcrypt = require('bcrypt')
+//const bcrypt = require('bcrypt')
+const bcryptjs = require('bcryptjs')
+
 const jwt = require('jsonwebtoken')
 const primateKey = require('../auth/private_key')
 
@@ -26,7 +28,7 @@ module.exports = (app) => {
                 const message = 'L\'utilisateur demandé n\'existe pas.'
                 res.status(404).json({message})
             }else{
-                bcrypt.compare(req.body.password, user.password).then(isPasswordValid =>{
+                bcryptjs.compare(req.body.password, user.password).then(isPasswordValid =>{
                     if(!isPasswordValid){
                         const message = `le mot de passe est incorrect`
                         return res.status(401).json({message})

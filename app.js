@@ -24,6 +24,10 @@ app.get('/',(req,res)=>{
   res.json('Hello Heroku')
 })
 
+app.get('/', (req, res) =>{
+  res.json('Hello Heroku ')
+} )
+//Ici nous placerons nos future points de terminaison
 require('./src/routes/findAllPokemons.js')(app)
 require('./src/routes/findPokemonByPk.js')(app)
 require('./src/routes/createPokemon.js')(app)

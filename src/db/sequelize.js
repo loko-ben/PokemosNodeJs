@@ -3,7 +3,9 @@ const { Sequelize, DataTypes } = require('sequelize')
 const PokemonModel = require('../models/pokemon')
 const pokemons = require('../db/pokemons.js')
 const UserModel = require('../models/user.js')
-const bcrypt = require('bcrypt')
+//const bcrypt = require('bcrypt')
+const bcryptjs = require('bcryptjs')
+
   
 const sequelize = new Sequelize('pokedex', 'root', '', {
   host: 'localhost',
@@ -44,7 +46,7 @@ const initDb = () => {
  * cryté sera difficile a décryté pour un pirate, mais cele prend également plus de ressource.
  * NB: n'oublie pas de pa ssé le mot de passe cryté a la bd et non le mot de passe de brute de l'utilisateur.
  */
-    bcrypt.hash('dalinlemalin', 10)
+    bcryptjs.hash('dalinlemalin', 10)
     .then(hash =>{
       user.create({
         username: 'Tchuisseu',
