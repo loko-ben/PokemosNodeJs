@@ -6,15 +6,30 @@ const UserModel = require('../models/user.js')
 //const bcrypt = require('bcrypt')
 const bcryptjs = require('bcryptjs')
 
+let sequelize
+
+if(process.env.NODE_ENV === 'production'){
   
-const sequelize = new Sequelize('pokedex', 'root', '', {
-  host: 'localhost',
+ sequelize = new Sequelize('h14ay7t8vjvbjgdw', 'ofe1i9p8fp5dupgq', 'f8td4k67jtxnd0yo', {
+  host: 'nkpl8b2jg68m87ht.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
   dialect: 'mariadb',
   dialectOptions: {
     timezone: 'Etc/GMT-2',
   },
-  logging: false
+  logging: true
 })
+}else{
+   sequelize = new Sequelize('pokedex', 'root', '', {
+    host: 'localhost',
+    dialect: 'mariadb',
+    dialectOptions: {
+      timezone: 'Etc/GMT-2',
+    },
+    logging: false
+  })
+}
+
+
   
 const Pokemon = PokemonModel(sequelize, DataTypes)
 const user = UserModel(sequelize, DataTypes)
@@ -24,7 +39,7 @@ pokemons est un tableau d'objets contenant des informations sur des Pokémon.
 .map() est une méthode qui parcourt chaque élément du tableau et applique une fonction à chacun d’eux.
  */ 
 const initDb = () => {
-  return sequelize.sync({force: true}).then(_ => {
+  return sequelize.sync().then(_ => {
     pokemons.map(pokemon => {
       Pokemon.create({
         name: pokemon.name,
