@@ -21,7 +21,7 @@ sequilize.initDb()
 //                                      -si l'entité(le model) possede un nom composé alors utilisons des "_"
 
 app.get('/',(req,res)=>{
-  res.json('Hello Heroku')
+  res.json('Hello, this is my first api ')
 })
 
 app.get('/', (req, res) =>{
