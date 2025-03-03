@@ -20,9 +20,9 @@ sequilize.initDb()
 //NB: Bonnes pratique en programmation: -un EndPoint toujour etre écrit en minuscule,
 //                                      -si l'entité(le model) possede un nom composé alors utilisons des "_"
 
-app.get('/',(req,res)=>{
-  res.json('Hello, this is my first api ')
-})
+//app.get('/',(req,res)=>{
+  //res.json('Hello Heroku')
+//})
 
 app.get('/', (req, res) =>{
   res.json('Hello Heroku ')
