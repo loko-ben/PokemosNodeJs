@@ -4,7 +4,7 @@ const {ValidationError ,UniqueConstraintError} = require('sequelize')
 const bcryptjs = require('bcryptjs')
 
 module.exports = (app) => {
-    app.post('api/users',(res, req)=>{ 
+    app.post('/api/user', (req, res)=>{ 
         bcryptjs.hash(req.body.password, 10)
             .then(hash =>{
               user.create({

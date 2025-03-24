@@ -35,7 +35,7 @@ require('./src/routes/createPokemon.js')(app)
 require('./src/routes/updatePokemon.js')(app)
 require('./src/routes/deletePokemon.js')(app)
 require('./src/routes/login.js')(app)    
-require('./src/routes/user.js')(app)
+require('./src/routes/CreateUsers.js')(app)
 
 
 app.use(({res})  => {
