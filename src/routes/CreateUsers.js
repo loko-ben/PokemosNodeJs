@@ -1,5 +1,5 @@
 //const User = require('../models/user')
-const user = require('../db/sequelize')
+const {user} = require('../db/sequelize')
 const {ValidationError ,UniqueConstraintError} = require('sequelize')
 const bcryptjs = require('bcryptjs')
 
