@@ -37,11 +37,12 @@ require('./src/routes/deletePokemon.js')(app)
 require('./src/routes/login.js')(app)    
 require('./src/routes/CreateUsers.js')(app)
 
-
+/*
 app.use(({res})  => {
   const message = 'Impossible de trouvé la ressource demandée! Vous pouvez essazer une autre URL'
   res.status(404).json({message})
 })
+*/
 //Ici seras nos futur point de terminaison
 
 //NB: npm nodemon app.js permet de reinicialiser toute les valeurs des ressources a leur valeurs de depart , il est differant de npm run nodemon app.js .
