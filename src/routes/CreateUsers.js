@@ -10,7 +10,14 @@ module.exports = (app) => {
               user.create({
                 username: req.body.username,
                 password: hash
-              }).then(user  => console.log(user.toJSON()))
+              }).then(user  => 
+                {
+                  const message = `Le user  ${req.body.username} a bien été crée.`
+                  res.json({ message, data: user })
+                  console.log(user.toJSON())
+                }
+                
+                )
             }
             ).catch(error=> {
                 if(error instanceof UniqueConstraintError){
