@@ -6,7 +6,8 @@ const sequilize = require('./src/db/sequelize.js')
 const { Console } = require('console')
 
 const app = express() 
-const port = process.env.PORT  || 3000 
+//const port = process.env.PORT  || 3000 
+const port =  3000 
 
 // const findAllPokemons = require('./src/routes/findAllPokemons.js')
 // findAllPokemons(app)
@@ -34,6 +35,7 @@ require('./src/routes/createPokemon.js')(app)
 require('./src/routes/updatePokemon.js')(app)
 require('./src/routes/deletePokemon.js')(app)
 require('./src/routes/login.js')(app)    
+require('./src/routes/user.js')(app)
 
 
 app.use(({res})  => {

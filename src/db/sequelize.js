@@ -5,6 +5,7 @@ const pokemons = require('../db/pokemons.js')
 const UserModel = require('../models/user.js')
 //const bcrypt = require('bcrypt')
 const bcryptjs = require('bcryptjs')
+const { FORCE } = require('sequelize/lib/index-hints')
 
 let sequelize
 
@@ -39,7 +40,7 @@ pokemons est un tableau d'objets contenant des informations sur des Pokémon.
 .map() est une méthode qui parcourt chaque élément du tableau et applique une fonction à chacun d’eux.
  */ 
 const initDb = () => {
-  return sequelize.sync().then(_ => {
+  return sequelize.sync({ force: true }).then(_ => {
     pokemons.map(pokemon => {
       Pokemon.create({
         name: pokemon.name,
